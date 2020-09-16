@@ -54,7 +54,8 @@ $LdapListAttrs = array($LDAP_DISTINGUISHEDNAME_FIELD, $DisplayName,
 
 // Делаем фильтр для выборки сотрудников
 //-------------------------------------------------------------------------------------------------------------
-$CompanyNameLdapFilter=Application::getCompanyNameLdapFilter();
+if(!$NO_COMPANY_ATTR)
+	$CompanyNameLdapFilter=Application::getCompanyNameLdapFilter();
 if(! empty($Name))
 	$SearchFilter=Application::getSearchFilter($Name, $LdapListAttrs);
 
